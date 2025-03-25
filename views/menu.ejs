@@ -1,0 +1,43 @@
+<% layout("/layouts/boilerplate") %>
+
+<section class="menu-section">
+    <!-- 🔎 Search Bar -->
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search for a dish...">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+
+    <h2 class="menu-heading">Explore Our Menu</h2>
+
+    <!--  Categories -->
+    <div class="categories">
+        <a href="/menu?category=all" class="category-btn">All</a>
+        <a href="/menu?category=burgers" class="category-btn">Burgers</a>
+        <a href="/menu?category=pizza" class="category-btn">Pizza</a>
+        <a href="/menu?category=pasta" class="category-btn">Pasta</a>
+        <a href="/menu?category=drinks" class="category-btn">Drinks</a>
+    </div>
+
+    <!--  All Dishes in Cards -->
+    <div class="menu-grid" id="menu-list">
+        <% for(let dish of dishes) { %>
+            <div class="dish-card">
+                <img src="<%= dish.image %>" alt="<%= dish.name %>" class="dish-img"/>
+                <button class="dish-btn"><%= dish.name %></button>
+            </div>
+        <% } %>
+    </div>
+</section>
+
+<script>
+    // 🔍 Search Functionality
+    document.getElementById("search-bar").addEventListener("input", function() {
+        let filter = this.value.toLowerCase();
+        let dishes = document.querySelectorAll(".dish-card");
+
+        dishes.forEach(dish => {
+            let name = dish.querySelector(".dish-btn").textContent.toLowerCase();
+            dish.style.display = name.includes(filter) ? "block" : "none";
+        });
+    });
+</script>

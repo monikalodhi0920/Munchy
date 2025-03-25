@@ -3,7 +3,7 @@
 <!-- search form -->
 
 <!-- search form end -->
-
+<!-- home section start -->
 <section class="home" id="home">
     <div class="container">
         <div class="home-slider">
@@ -47,3 +47,30 @@
         </div>
     </div>
 </section>
+<!-- home section end -->
+<!-- menu section start -->
+<section class="menu-section" id="dishes">
+    <h2>Our Dishes</h2>
+    <div class="menu-images">
+        <% menuItems.forEach(item => { %>
+            <a href="/menu" class="menu-item">
+                <img src="<%= item.image %>" alt="<%= item.name %>"><br/><br/><br/>
+                <button class="btn">Buy now</button>
+            </a>
+        <% }) %>
+    </div>
+</section>
+<!-- menu section end -->
+
+<!-- about section start -->
+<section class="about-section" id="about">
+    <div class="about-content">
+        <h2>About Us</h2>
+        <p>Welcome to Munchy! We serve delicious, high-quality food made with love. Our passion for taste and freshness brings the best dishes to your table.</p>
+        <a href="/about" class="about-btn">Read More</a>
+    </div>
+</section>
+
+
+<!-- about section end -->
+
